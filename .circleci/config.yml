@@ -1,7 +1,10 @@
 version: 2.1
+executors:
+  my-executor:
+    docker:
+      - image: cimg/ruby:2.7.1-node
 jobs:
   build:
-    docker:
-      - image: cimg/node:lts
+    executor: my-executor
     steps:
-      - run: echo "hello world"
+      - run: echo "Hello World"
