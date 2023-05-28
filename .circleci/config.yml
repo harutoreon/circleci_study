@@ -5,6 +5,7 @@ executors:
       - image: cimg/ruby:2.7.1-node
 jobs:
   build:
-    executor: my-executor
+    executor:
+      name: my-executor
     steps:
       - run: echo "Hello World"
