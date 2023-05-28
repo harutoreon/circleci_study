@@ -14,5 +14,4 @@ jobs:
     docker:
       - image: cimg/node:lts
     steps:
-      - sayhello:
-          to: Everyone
+      - sayhello
