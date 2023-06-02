@@ -1,17 +1,13 @@
 version: 2.1
-commands:
-  sayhello:
-    description: "Say Hello"
-    parameters:
-      to:
-        type: string
-        default: "World"
-    steps:
-      - run: echo Hello << parameters.to >>
-  
+
 jobs:
   build:
     docker:
       - image: cimg/node:lts
     steps:
-      - sayhello
+      - run:
+          name: ビルトイン環境変数の利用
+          command: |
+            echo "CI is '$CI'"
+            echo "CIRCLE_SHA1 is '$CIRCLE_SHA1'"
+            echo "CIRCLE_BRANCH is '$CIRCLE_BRANCH'"
