@@ -1,4 +1,5 @@
 version: 2.1
+
 jobs:
   build:
     docker:
@@ -6,3 +7,10 @@ jobs:
     steps:
       - run:
           command: echo "NODE_ENV is '$NODE_ENV'"
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build:
+          context: NODE_ENV
