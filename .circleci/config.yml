@@ -1,16 +1,12 @@
 version: 2.1
-
 jobs:
   build:
     docker:
       - image: cimg/node:lts
     steps:
       - run:
-          command: echo "NODE_ENV is '$NODE_ENV'"
-
-workflows:
-  version: 2
-  workflow:
-    jobs:
-      - build:
-          context: NODE_ENV
+          name: Base64を使用して複数行の環境変数を扱う
+          environment:
+            MULTILINE_ENV_VAR: MeihjOebrgoy6KGM55uuCg==
+          command: |
+            echo $MULTILINE_ENV_VAR | base64 --decode
