@@ -1,25 +1,8 @@
 version: 2.1
-
 jobs:
   build:
     docker:
       - image: cimg/node:lts
-        environment:
-          NODE_ENV: production
-      - image: circleci/postgres:9.6
-        environment:
-          POSTGRES_USER: root
     steps:
       - run:
-          name: プライマリイメージで定義された環境変数を利用する
           command: echo "NODE_ENV is '$NODE_ENV'"
-      - run:
-          name: ステップで同名の環境変数を定義すると上書きされる
-          environment:
-            NODE_ENV: test
-          command: echo "NODE_ENV is '$NODE_ENV'"
-      - run:
-          name: ステップで同名の環境変数を定義すると上書きされる
-          environment:
-            NODE_ENV: test
-          command: echo "POSTGRES_USER is '$POSTGRES_USER'"
